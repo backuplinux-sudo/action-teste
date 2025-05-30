@@ -3,8 +3,10 @@ import os
 
 print(os.system('env'))
 
-print(f"branch: {os.getenv('INPUT_BRANCH')}")
-print(f"padrao_branch: {os.getenv('INPUT_PADRAO_BRANCH')}")
+branch = os.getenv('INPUT_BRANCH')
+padrao_branch = os.getenv('INPUT_PADRAO_BRANCH').split(", ")
 
-if os.getenv("INPUT_BRANCH") in os.getenv("INPUT_PADRAO_BRANCH"):
-    print("Branch está no padrão PADRAO_BRANCH")
+for padrao in padrao_branch:
+    if branch.startswith(padrao):
+        print(f"Branch '{branch}' está no padrão '{padrao}'")
+        exit(0)
