@@ -1,10 +1,16 @@
 name: Verificação padrões de branch
 description: Verifica se a branch possui os prefixos padrões de branch
 
+inputs:
+  padrao_branch:
+    description: padrões aceitos para o nome da branch
+    required: false
+    default: ['bug-', 'projeto-']
+
 runs:
   using: docker
   image: app/Dockerfile
   # args: # Preciso do nome da branch na passagem?
   #   - ${{ inputs.site }} 
   args:
-    - "['bug-', 'projeto-']"
+    - ${{ inputs.padrao_branch }}
