@@ -5,7 +5,7 @@ inputs:
   padrao_branch:
     description: padrões aceitos para o nome da branch
     required: false
-    default: ['bug-', 'projeto-']
+    default: "['bug-', 'projeto-']"
 
 runs:
   using: docker
