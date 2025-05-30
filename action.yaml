@@ -8,10 +8,12 @@ inputs:
     default: "['bug-', 'projeto-']"
 
 runs:
+  env:
+    head_ref: ${{ github.head_ref }}
   using: docker
   image: app/Dockerfile
   # args: # Preciso do nome da branch na passagem?
   #   - ${{ inputs.site }} 
   args:
     - ${{ inputs.padrao_branch }}
-    - ${{ github.head_ref }}
+    - ${{ env.head_ref }}
