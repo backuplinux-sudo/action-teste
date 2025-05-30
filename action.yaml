@@ -5,7 +5,10 @@ inputs:
   padrao_branch:
     description: padrões aceitos para o nome da branch
     required: false
-    default: "['bug-', 'projeto-']"
+    default: "bug-, projeto-"
+  branch:
+    description: nome da branch a ser verificada
+    required: true
 
 runs:
   using: docker
@@ -14,4 +17,4 @@ runs:
   #   - ${{ inputs.site }} 
   args:
     - ${{ inputs.padrao_branch }}
-    - ${{ github.head_ref }}
+    - ${{ inputs.branch }}
